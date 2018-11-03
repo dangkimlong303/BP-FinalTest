@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove from array</title>
+</head>
+<body>
+    <script>
+        var array = [3,5,2,6,9,7,8,0,10,1,4];
+
+        function tryRemoveFromArray(array,index) {
+            if (index >= array.length){
+                return array;
+            }else {
+                for (var i = 0; i < array.length; i++){
+                    if (index < array.length){
+                        array[index] = array[index+1];
+                        index++;
+                    }
+                }
+                array.pop();
+                return array;
+            }
+        }
+
+        document.write(array + '<br/>');
+        document.write(tryRemoveFromArray(array,0));
+    </script>
+</body>
+</html>

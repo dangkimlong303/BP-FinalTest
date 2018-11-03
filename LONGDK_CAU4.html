@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+    <style>
+        canvas{
+            border: solid 1px black;
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="420" height="220"></canvas>
+
+    <script>
+        const X = 10;
+        const Y= 10;
+        const WIDTH = 200;
+        const HEIGHT = 100;
+        const COLOR = '#000000';
+
+        function Rectangle(x,y,width,height,color) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.color = color;
+
+            this.render = function (canvas) {
+                var context = canvas.getContext('2d');
+                context.beginPath();
+                context.rect(this.x,this.y,this.width,this.height);
+                context.fillStyle = this.color;
+                context.fill();
+                context.closePath();
+            }
+        }
+
+        var canvas = document.getElementById('myCanvas');
+        var rectangle = new Rectangle(X,Y,WIDTH,HEIGHT,COLOR);
+        rectangle.render(canvas);
+    </script>
+</body>
+</html>
